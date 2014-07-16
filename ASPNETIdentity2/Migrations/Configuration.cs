@@ -11,7 +11,7 @@ namespace ASPNETIdentity2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ASPNETIdentity2.Models.MyContext context)
@@ -48,7 +48,6 @@ namespace ASPNETIdentity2.Migrations
             }
             catch (Exception ex)
             {
-                
                 throw ex;
             }
         }

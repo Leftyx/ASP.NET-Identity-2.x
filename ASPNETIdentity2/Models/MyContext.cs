@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Web;
 
-    public class MyContext : IdentityDbContext <MyUser, MyRole, string, MyUserLogin, MyUserRole, MyUserClaim>
+    public class MyContext : IdentityDbContext<MyUser, MyRole, string, MyUserLogin, MyUserRole, MyUserClaim>
     {
         public MyContext(): base("OwinWebApiSecurity")
         {
