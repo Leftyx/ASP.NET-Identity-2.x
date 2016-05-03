@@ -1,13 +1,9 @@
-﻿namespace ASPNETIdentity2.Models
-{
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Web;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
-    public class MyContext : IdentityDbContext<MyUser, MyRole, string, MyUserLogin, MyUserRole, MyUserClaim>
+namespace ASPNETIdentity2.Models
+{
+    public class MyContext : IdentityDbContext<MyUser, MyRole, int, MyUserLogin, MyUserRole, MyUserClaim>
     {
         public MyContext(): base("OwinWebApiSecurity")
         {
@@ -24,6 +20,41 @@
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<MyUser>()
+                .Property(p => p.Id)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyRole>()
+                .Property(p => p.Id)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUserRole>()
+                .Property(p => p.RoleId)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUserRole>()
+                .Property(p => p.UserId)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUserClaim>()
+                .Property(p => p.Id)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUserClaim>()
+                .Property(p => p.UserId)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUserLogin>()
+                .Property(p => p.UserId)
+                .HasColumnType("int")
+                .IsRequired();
+
+            modelBuilder.Entity<MyUser>()
                 .ToTable("Users");
 
             modelBuilder.Entity<MyRole>()
@@ -37,6 +68,7 @@
 
             modelBuilder.Entity<MyUserLogin>()
                 .ToTable("UserLogins");
+
         }
     }
 }

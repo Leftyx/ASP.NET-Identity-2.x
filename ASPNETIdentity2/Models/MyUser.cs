@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ASPNETIdentity2.Models
 {
-    public class MyUser : IdentityUser<string, MyUserLogin, MyUserRole, MyUserClaim>
+    public class MyUser : IdentityUser<int, MyUserLogin, MyUserRole, MyUserClaim>
     {
+        public string CompanyName { get; set; }
     }
 }

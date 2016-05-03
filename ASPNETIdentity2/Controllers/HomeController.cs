@@ -1,12 +1,7 @@
-﻿using ASPNETIdentity2.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNet.Identity.Owin;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
 
 namespace ASPNETIdentity2.Controllers
 {
@@ -14,9 +9,9 @@ namespace ASPNETIdentity2.Controllers
     {
         private ApplicationUserManager _userManager;
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var user = UserManager.Find("john", "john");
+            var user = await UserManager.FindAsync("leftyx", "12345678@");
 
             return View();
         }

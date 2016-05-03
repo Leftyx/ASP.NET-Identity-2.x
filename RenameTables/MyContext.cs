@@ -1,15 +1,12 @@
 ﻿namespace RenameTables
 {
-    using System;
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     public class MyContext : IdentityDbContext
     {
-        public MyContext()
-            : base("OwinWebApiSecurity")
+        public MyContext() : base("OwinWebApiSecurity")
         {
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

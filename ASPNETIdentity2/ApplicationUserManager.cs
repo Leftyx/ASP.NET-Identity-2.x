@@ -1,17 +1,14 @@
-﻿using ASPNETIdentity2.Models;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ASPNETIdentity2
 {
-    public class ApplicationUserManager : UserManager<ASPNETIdentity2.Models.MyUser, string>
+    using ASPNETIdentity2.Models;
+
+    public class ApplicationUserManager : UserManager<ASPNETIdentity2.Models.MyUser, int>
     {
-        public ApplicationUserManager(IUserStore<ASPNETIdentity2.Models.MyUser, string> store)
+        public ApplicationUserManager(IUserStore<MyUser, int> store)
             : base(store)
         {
 
@@ -21,13 +18,13 @@ namespace ASPNETIdentity2
         {
             var manager = new ApplicationUserManager(new MyUserStore(context.Get<MyContext>()));
 
-            manager.UserValidator = new UserValidator<MyUser, string>(manager)
+            manager.UserValidator = new UserValidator<MyUser, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
 
-            manager.PasswordValidator = new PasswordValidator()
+            manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 5,
                 RequireNonLetterOrDigit = false,     // true
@@ -38,5 +35,6 @@ namespace ASPNETIdentity2
 
             return (manager);
         }
+
     }
 }
