@@ -8,10 +8,8 @@ namespace ASPNETIdentity2
 
     public class ApplicationUserManager : UserManager<ASPNETIdentity2.Models.MyUser, int>
     {
-        public ApplicationUserManager(IUserStore<MyUser, int> store)
-            : base(store)
+        public ApplicationUserManager(IUserStore<MyUser, int> store) : base(store)
         {
-
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)

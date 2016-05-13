@@ -1,9 +1,9 @@
-﻿namespace RenameTables
-{
-    using System;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.AspNet.Identity;
+﻿using System;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
+namespace RenameTables
+{
     class Program
     {
         static void Main(string[] args)
@@ -41,7 +41,7 @@
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    throw new Exception("some reason to rethrow", ex);
                 }
 
                 Console.WriteLine("Finished!");

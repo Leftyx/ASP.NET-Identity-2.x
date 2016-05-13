@@ -1,11 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Owin;
+﻿using ASPNETIdentity2.Models;
 using Microsoft.Owin;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security.OAuth;
-
-using ASPNETIdentity2.Models;
+using Owin;
 
 [assembly: OwinStartup(typeof(ASPNETIdentity2.Startup))]
 
